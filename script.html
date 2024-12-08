@@ -1,0 +1,13 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- If you don't have jquery called -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> <!-- inputmasking cdn -->
+<script>
+jQuery(document).ready(function($) {
+    // Apply input mask to the phone field
+    $('input[name="form-field-phone"]').inputmask({
+        mask: "+7 (999) 999-999-999",          // Define phone mask for 12 digits
+        placeholder: "+7 (___) ___-___-___",   // Placeholder format (same as mask)
+        showMaskOnHover: false,                // Don't show the mask on hover
+        clearMaskOnLostFocus: false            // Keep the mask when the field loses focus
+    });
+});
+</script>
