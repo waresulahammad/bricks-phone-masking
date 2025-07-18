@@ -1,0 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+<script>
+  jQuery(document).ready(function($) {
+    var phoneField = $('input[name="field-phone"]');
+    
+    phoneField.inputmask({
+      mask: "+1 (999) 999-9999",
+      placeholder: "+1 (___) ___-____",
+      showMaskOnHover: false,
+      clearMaskOnLostFocus: false,
+      removeMaskOnSubmit: true
+    });
+
+    phoneField.on('input', function() {
+      if (!phoneField.inputmask("isComplete")) {
+        phoneField[0].setCustomValidity("Please enter a complete phone number.");
+      } else {
+        phoneField[0].setCustomValidity("");
+      }
+    });
+  });
+</script>
+
+
+
+
+<script>  User Manual   </script>
+I just solved major headache that might save some other people. When I followed @waresulahammad code exactly, I was getting an error upon submission.
+
+Under your form settings, on the phone field, for the “Attribute: Name” setting, I added “form-field-phone” so the code would work. But for some reason you cant name it that specifically.
+
+“form-field-phone” did not work.
+but anything else works like “phone-field”.
+
+Summary:
+Form Settings → Fields → Phone Number → Attribute: Name= “phone-field”
+
+Update code to “$(‘input[name=“phone-field”]’).inputmask”
